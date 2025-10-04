@@ -15,7 +15,8 @@ import AllExpenses from "./components/admin/AllExpenses";
 import CreateExpenseForm from "./components/expenses/CreateExpenseForm";
 import MyExpenses from "./components/expenses/MyExpenses";
 import PendingApprovals from "./components/approvals/PendingApprovals";
-import Dashboard from "./pages/Dashboard";
+import Dashboard from "./components/Dashboard/Dashboard";
+
 
 const ProtectedRoute = ({ children, requiredRole }) => {
   const { isAuthenticated, user } = useAuthStore();
@@ -42,7 +43,7 @@ const App = () => {
           path="/dashboard"
           element={
             <ProtectedRoute>
-              <Dashboard />
+              <Dashboard/>
             </ProtectedRoute>
           }
         />

@@ -6,22 +6,11 @@ import { useNavigate } from 'react-router-dom';
 
 // Import Lucide React icons for a professional look
 import { Mail, Lock, LogIn, AlertCircle } from 'lucide-react';
+import { useAuthStore } from '../../stores';
 
 // Mock the external dependencies to make this file runnable in an isolated environment
 // In a real project, you would delete this mock code:
 // =========================================================================
-const useAuthStore = () => ({
-    login: async (email, password) => {
-        await new Promise(resolve => setTimeout(resolve, 1500)); // Simulate API delay
-        if (email === 'test@expense.com' && password === 'password') {
-            return { success: true };
-        } else {
-            return { success: false, error: 'Invalid email or password.' };
-        }
-    },
-    loading: false, // Initial state for loading
-    error: null     // Initial state for error
-});
 
 // const useNavigate = () => (path) => {
 //     console.log(`Navigating to: ${path}`);
@@ -36,15 +25,15 @@ const LoginForm = () => {
     const [password, setPassword] = useState('');
     
     // Using the mock/real useAuthStore hook
-    const { login, loading, error: authError } = useAuthStore(); 
+    const { login, loading, error } = useAuthStore(); 
     const navigate = useNavigate();
 
     // Local state to manage the error message displayed in the UI
-    const [displayError, setDisplayError] = useState(authError);
+    const [displayError, setDisplayError] = useState(error);
     // Sync the external error state for display
     useState(() => {
-        setDisplayError(authError);
-    }, [authError]);
+        setDisplayError(error);
+    }, [error]);
 
     const handleSubmit = async (e) => {
         e.preventDefault();

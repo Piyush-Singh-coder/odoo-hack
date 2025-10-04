@@ -6,24 +6,12 @@ import { useNavigate } from 'react-router-dom';
 
 // Import Lucide React icons
 import { Mail, Lock, User, Briefcase, Globe, CheckCircle, AlertCircle, Sparkles } from 'lucide-react';
+import { useAuthStore } from '../../stores';
 
 // Mock the external dependencies to make this file runnable in an isolated environment
 // In a real project, you would delete this mock code:
 // =========================================================================
-const useAuthStore = () => ({
-    signup: async (formData) => {
-        await new Promise(resolve => setTimeout(resolve, 2000)); // Simulate API delay
-        console.log("Attempting signup with:", formData);
-        
-        if (formData.email.includes('fail')) {
-            return { success: false, error: 'Email already registered or invalid input.' };
-        } else {
-            return { success: true };
-        }
-    },
-    loading: false, // Initial state for loading
-    error: null     // Initial state for error
-});
+
 
 // const useNavigate = () => (path) => {
 //     console.log(`Navigating to: ${path}`);
