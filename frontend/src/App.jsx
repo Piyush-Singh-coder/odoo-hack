@@ -37,7 +37,10 @@ const App = () => {
     <Router>
       <Routes>
         <Route path="/login" element={<LoginForm />} />
-        <Route path="/signup" element={<SignupForm />} />
+        
+        <Route path="/signup" element={<ProtectedRoute requiredRole="admin">
+              <SignupForm />
+            </ProtectedRoute>} />
 
         <Route
           path="/dashboard"

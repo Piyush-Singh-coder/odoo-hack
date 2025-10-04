@@ -2,7 +2,9 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useExpenseStore } from '../../stores';
+import { StatCard, ActionCard } from './SharedComponents'; // Import shared components
 import './Dashboard.css';
+
 const ManagerDashboard = () => {
   const navigate = useNavigate();
 

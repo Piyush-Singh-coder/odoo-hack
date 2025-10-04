@@ -1,8 +1,9 @@
 // components/Dashboard/EmployeeDashboard.jsx
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useExpenseStore, useAuthStore } from '../../stores';
 import './Dashboard.css';
+
 const EmployeeDashboard = () => {
   const navigate = useNavigate();
   const { user } = useAuthStore();

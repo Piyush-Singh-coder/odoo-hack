@@ -1,6 +1,8 @@
+// components/Dashboard/AdminDashboard.jsx
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useExpenseStore, useUserStore, useApprovalStore } from '../../stores';
+import { StatCard, ActionCard } from './SharedComponents'; // Import shared components
 import './Dashboard.css';
 
 const AdminDashboard = () => {
@@ -56,7 +58,7 @@ const AdminDashboard = () => {
       </div>
 
       {/* Statistics Cards */}
-      {/* <div className="stats-grid">
+      <div className="stats-grid">
         <StatCard
           title="Total Users"
           value={stats.totalUsers}
@@ -96,10 +98,10 @@ const AdminDashboard = () => {
           icon="💵"
           color="#06b6d4"
         />
-      </div> */}
+      </div>
 
       {/* Quick Actions */}
-      {/* <div className="quick-actions-section">
+      <div className="quick-actions-section">
         <h3>Quick Actions</h3>
         <div className="action-cards-grid">
           <ActionCard
@@ -139,7 +141,7 @@ const AdminDashboard = () => {
             onClick={() => alert('Reports feature coming soon!')}
           />
         </div>
-      </div> */}
+      </div>
 
       {/* Recent Activity */}
       <div className="recent-activity-section">
@@ -183,4 +185,4 @@ const AdminDashboard = () => {
   );
 };
 
-export default AdminDashboard
+export default AdminDashboard;
